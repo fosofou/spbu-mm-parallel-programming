@@ -1,4 +1,4 @@
-package Task2;
+package Tasks.Task2;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -30,7 +30,7 @@ public class SemaphoreBuffer {
                     producerSemaphore.acquire();
                     int item = genItem();
                     buffer.add(item);
-                    System.out.println(STR."Producer id: \{Thread.currentThread().getId()}, generated: \{item}");
+                    System.out.println("Producer id:" + Thread.currentThread().getName() +  ", generated: " + item);
                     producedCount++;
                     if (producedCount % OPERATIONS_BEFORE_PAUSE == 0) {
                         Thread.sleep(2000);
@@ -54,7 +54,7 @@ public class SemaphoreBuffer {
                 try {
                     consumerSemaphore.acquire();
                     int item = buffer.removeFirst();
-                    System.out.println(STR."Consumer id: \{Thread.currentThread().getId()}, consumed: \{item}");
+                    System.out.println("Consumer id: " + Thread.currentThread().getName() + ", consumed: " + item);
                     consumedCount++;
                     if (consumedCount % OPERATIONS_BEFORE_PAUSE == 0) {
                         Thread.sleep(2000);
@@ -83,7 +83,7 @@ public class SemaphoreBuffer {
             consumerThread.start();
         }
 
-        System.out.println(STR."numProducers: \{NUM_PRODUCERS} numConsumers: \{NUM_CONSUMERS}");
+        System.out.println("numProducers: " + NUM_PRODUCERS + " numConsumers: " + NUM_CONSUMERS);
         System.out.println("Press any key to stop");
 
         try {
