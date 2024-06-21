@@ -1,4 +1,4 @@
-package Tasks.Task2;
+package Tasks.Task2.Task1;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
